@@ -1,6 +1,6 @@
 # CoreML Conversion Hub
 
-This repository contains the code for converting various deep learning models from Tensorflow and Pytorch to CoreML format. Converting models in standard frameworks like Tensorflow and Pytorch isn't always a straightforward process as the conversion libraries are still evolving and may have to change the code for different kinds of model types. In addition to the converted CoreML models, this repo also contains the code for converting them so that users can use them for converting some other models of similar types.
+This repository contains the code for converting various deep learning models from Tensorflow and Pytorch to CoreML format. Converting models in standard frameworks like Tensorflow and Pytorch isn't always a straightforward process as the conversion libraries are still evolving and may have to change the code for different kinds of model types. In addition to the converted CoreML models, this repo also contains the code for converting them so that users can use them for converting some other models of similar types. Use the IOS app [AiBench](https://apps.apple.com/app/id1518857334) to benchmark all these provided models on real devices.
 
 ## Requirements
 

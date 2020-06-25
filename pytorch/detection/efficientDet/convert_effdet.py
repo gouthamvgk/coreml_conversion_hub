@@ -12,6 +12,11 @@ import coremltools
 from coremltools.models import datatypes
 from coremltools.models.pipeline import *
 
+#at the time of writing this code coreml and onnx_coreml had some bugs in source code that needs to changed
+#for the conversion process to proceed
+#add the tem "rank=4" in line 46 and 337 at onnx_coreml/_operators_nd.py
+#change line 1454, 1455 to spec_layer_params.scalingFactor.append(int(scaling_factor_h)),
+#spec_layer_params.scalingFactor.append(int(scaling_factor_w)) in coremltools/models/neural_network/builder.py
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--type", default=0, type=int, help="Coefficient of efficientdet. can be 0,1,2,3")
@@ -34,7 +39,7 @@ model.backbone_net.model.set_swish(memory_efficient=False)
 #Downloading and loading model weights
 os.system("wget {}".format(eff_urls[args.type]))
 model.load_state_dict(torch.load(eff_urls[args.type].split('/')[-1]))
-
+model.eval()
 dummy_input = torch.randn((1,3, model.input_sizes[args.type],model.input_sizes[args.type]), dtype=torch.float32).to(device)
 model(dummy_input) #running one forward pass so that all dynamism in forward pass is made as static
 

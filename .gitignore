@@ -3,3 +3,7 @@
 *.tar.gz
 *.mlmodel
 *.pb
+*.onnx
+*.pth
+**/.ipynb_checkpoints
+*.ipynb
